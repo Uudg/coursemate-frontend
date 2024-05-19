@@ -6,6 +6,7 @@
 @import './chats.css';
 @import './users.css';
 @import './post.css';
+@import './settings.css';
 
 .view {
     margin-bottom: 40px;

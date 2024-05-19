@@ -1,0 +1,24 @@
+.settings input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.settings .logout {
+    /* background: #f00; */
+    background: #fff;
+    border: 1px solid;
+    padding: 10px;
+    color: #000;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.settings .changepassword {
+    background: #000;
+    color: #fff;
+    margin: 20px 0;
+}
