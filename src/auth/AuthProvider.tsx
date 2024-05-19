@@ -23,6 +23,7 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
     const signIn = async (username: string, password: string) => {
         const user = await sign_in(username, password);
+        localStorage.setItem('user', JSON.stringify(user));
         setUser(user);
     };
 
