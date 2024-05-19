@@ -1,0 +1,245 @@
+.hub {
+    width: 100%;
+
+button {
+    &.skeleton {
+        display: none;
+    }
+}
+
+.body {
+    &.skeleton {
+        border-radius: 20px;
+    }
+}
+
+.skeleton {
+    background: #D9D9D9;
+    cursor: auto !important;
+    border-radius: 10px;
+    min-width: 70px;
+}
+
+.preview {
+    padding: 20px;
+    border-radius: 20px;
+    background: #fff;
+    color: #D9D9D9;
+    cursor: pointer;
+
+    p {
+        display: inline-block;
+        height: 2rem;
+    }
+
+    .avatar {
+        width: 50px;
+        height: 50px;
+        margin-right: 40px;
+        transition: .5s;
+
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    }
+}
+
+.create {
+    color: #000;
+
+    .avatar {
+        height: 100px;
+        width: 100px;
+    }
+
+    .top {
+        margin-bottom: 20px;
+    }
+
+    .title {
+        font-size: 2rem;
+        font-weight: 600;
+        padding: 0 20px;
+        flex-grow: 1;
+        box-sizing: border-box;
+    }
+
+    #editor {
+        padding: 20px;
+        /* height: 100%; */
+        min-height: 200px;
+        outline: var(--accent-color);
+        /* resize: vertical; */
+    }
+
+    button {
+        border-radius: 10px;
+    }
+
+    .cancel {
+        border: 1px solid;
+        background: none;
+        color: #000;
+        margin-right: 20px;
+    }
+
+    .btns {
+        justify-content: flex-end;
+    }
+}
+
+.tags {
+    &+input {
+        width: 200px !important;
+        border-bottom: 1px solid var(--accent-color);
+        padding: 10px;
+    }
+}
+}
+
+.post-preview {
+
+    padding: 22px 30px;
+    background: #fff;
+    border-radius: 20px;
+    margin-bottom: 20px;
+
+    .user-img {
+        width: 50px !important;
+        height: 50px !important;
+        overflow: hidden;
+        border-radius: 50% !important;
+        margin-right: 10px;
+        overflow: hidden;
+        background: var(--main-color);
+        margin-right: 1rem;
+    }
+
+    .user-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .top {
+        /* height: 25%; */
+        margin-bottom: 8px;
+        justify-content: space-between;
+    }
+
+    .name {
+        min-height: 1rem;
+        font-size: 1.1rem;
+        font-weight: 500;
+    }
+
+    .name:hover,
+    .body:hover,
+    .user-img {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+    .date {
+        font-weight: 500;
+        color: #8a8a8a;
+        font-size: .8rem;
+        margin-left: 24px;
+        position: relative;
+    }
+
+    .date::after {
+        content: '';
+        position: absolute;
+        width: 3px;
+        height: 3px;
+        background: #8a8a8a;
+        border-radius: 50%;
+        top: 50%;
+        left: -10px;
+        transform: translateY(-50%);
+    }
+
+    .uni {
+        font-size: .9rem;
+        font-weight: 500;
+    }
+
+    .body {
+        min-height: 2rem;
+    }
+
+    .bot {
+        /* height: 25%; */
+        justify-content: space-between;
+    }
+
+    .likes,
+    .dislikes,
+    .replies {
+        background: none;
+        border: 1px solid #000;
+        color: #000;
+        margin-right: 10px;
+    }
+
+
+    .opts {
+        background: none;
+        width: 50px;
+        height: 50px;
+    }
+
+    .title {
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-top: 20px;
+    }
+
+    .content {
+        letter-spacing: -0.017em;
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+}
+
+.types {
+    margin-bottom: 20px;
+    border-radius: 20px;
+    font-family: 'Poppins';
+
+    .type {
+        padding: 20px 40px;
+        background: none;
+        color: #000;
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-right: 20px;
+    }
+
+    .active {
+        background: #D9D9D9;
+    }
+    
+    .type:hover {
+        background: #D9D9D9;
+        cursor: pointer;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+
+    .types {
+        justify-content: space-between;
+    }
+
+    .type {
+        font-size: 1rem;
+        padding: 10px 0;
+        width: 33%;
+    }
+}

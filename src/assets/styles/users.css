@@ -1,0 +1,134 @@
+.user {
+    /* padding: 20px; */
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    /* margin-bottom: 40px; */
+    padding-bottom: 20px;
+}
+
+.user .bg {
+    height: 300px;
+    width: 100%;
+    overflow: hidden;
+    background: #d8d8d8;
+}
+
+.user img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: none;
+}
+
+.user .avatar {
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid #fff;
+}
+
+.user .body {
+    padding: 20px;
+}
+
+.user .edit {
+    margin-left: auto;
+}
+
+.user h3 {
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.user .body>div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user .uni {
+    color: #8a8a8a;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.user .uni i {
+    margin-right: 10px;
+    width: 24px;
+    height: 24px;
+    mask: url('../../assets//svg/uni.svg');
+    background: #8a8a8a;
+}
+
+.user .username {
+    color: var(--light-accent-color);
+    font-size: 1.2rem;
+    padding: 10px;
+}
+
+.user .info {
+    font-weight: 300;
+}
+
+.user .mates:hover {
+    color: var(--accent-color);
+    cursor: pointer;
+}
+
+.user .info span {
+    font-weight: 600;
+}
+
+.user .info .mates {
+    margin-right: 20px;
+}
+
+.user.edit .bg,
+.user.edit .avatar {
+    cursor: pointer;
+}
+
+
+.user.edit .bg:hover,
+.user.edit .avatar:hover {
+    opacity: 0.8;
+}
+
+.user.edit .btns {
+    width: 100%;
+    justify-content: space-between;
+}
+
+.user.edit .edit {
+    margin-left: 0;
+    background: none;
+    color: #000;
+    border: 1px solid;
+}
+
+@media screen and (max-width: 768px) {
+    .user {
+        h3 {
+            font-size: 2rem;
+            padding-right: 0;
+            padding-left: 0;
+        }
+
+        .uni,
+        .username {
+            font-size: 1.2rem;
+        }
+
+        .edit {}
+    }
+}
