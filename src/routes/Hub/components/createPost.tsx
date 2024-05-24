@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { create_post } from "../../../api/hub";
 import Alert from "../../../layouts/Alert";
+import useAuth from "../../../auth/useAuth";
 
 const CreatePost = () => {
 
@@ -63,14 +64,25 @@ const CreatePost = () => {
         setTags(newTags);
     };
 
-    const user = JSON.parse(localStorage.getItem('user') || '{}');
+    const {user} = useAuth()
+    if (!user) return
     return(
         <div className="col col-sm-12 preview">
             {alert && <Alert message={alertMessage} type={alertType} />}
         {!active ?
             <div className="row a-center top" onClick={() => setActive(!active)}>
                 <div className="avatar">
-                    <img src={`${import.meta.env.VITE_API_URL}/public/profile/${user._id}.jpg`} alt="" />
+                    {
+                        user.profile_img
+                        ?
+                        <div className="avatar">
+                                <img src={`${import.meta.env.VITE_API_URL}/public/profile/${user._id}.jpg`} alt="" />  
+                        </div>
+                        :
+                        <div className="avatar placeholder">
+                            🤨
+                        </div>
+                    }
                 </div>
                 <p>What's happening?</p>
             </div>
@@ -78,7 +90,17 @@ const CreatePost = () => {
             <div className="create column">
                 <div className="row a-center">
                     <div className="avatar">
-                        <img src={`${import.meta.env.VITE_API_URL}/public/profile/${user.id}.jpg`} alt="" />
+                        {
+                        user.profile_img
+                        ?
+                        <div className="avatar">
+                                <img src={`${import.meta.env.VITE_API_URL}/public/profile/${user._id}.jpg`} alt="" />  
+                        </div>
+                        :
+                        <div className="avatar placeholder">
+                            🤨
+                        </div>
+                    }
                     </div>
                     <input type="text" placeholder="Title" className="title" onChange={(e) => setTItle(e.target.value)}/>
                 </div>

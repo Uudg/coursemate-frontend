@@ -11,26 +11,31 @@ interface ReplyProps {
 }
 
 import { useNavigate } from "react-router-dom";
+import useAuth from "../../../auth/useAuth";
 
-    const Reply: React.FC<ReplyProps> = ({ reply, del_reply }) => {
-    const user = localStorage.getItem('user');
-    let id;
-    if (user) {
-        id = JSON.parse(user).id;
-    }
+const Reply: React.FC<ReplyProps> = ({ reply, del_reply }) => {
+    
+    const {user} = useAuth();
 
     const navigate = useNavigate();
+
+    const len = 30;
+    const words = reply.body.split(' ');
+    const displayBody = words.length > len ? words.slice(0, len).join(' ') + '...' : reply.body;
+
     return(
         <div className="reply row">
             <div className="avatar" onClick={() => navigate(`/users/${reply.author._id}`)}>
-                <img src={`${import.meta.env.VITE_API_URL}/public/profile/${reply.author._id}.jpg`} alt="" />
+                <div>
+                    <img src={`${import.meta.env.VITE_API_URL}/public/profile/${reply.author._id}.jpg`} alt="" />
+                </div>
             </div>
             <div className="column">
                 <div className="name" onClick={() => navigate(`/users/${reply.author._id}`)}>{reply.author.fullname}</div>
-                <div className="body">{reply.body}</div>
+                <div className="body">{displayBody}</div>
             </div>
-            {reply.author._id === id && (
-                <button onClick={() => del_reply(reply._id)}>Delete</button>
+            {user && reply.author._id === user._id && (
+                <button onClick={() => del_reply(reply._id)}><i></i></button>
             )}
         </div>
     )

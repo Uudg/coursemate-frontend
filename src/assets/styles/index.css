@@ -63,6 +63,7 @@ button {
     padding: 6px 40px;
     border-radius: 40px;
     cursor: pointer;
+    font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial;
 }
 
 button:hover {
@@ -71,18 +72,19 @@ button:hover {
 
 
 input,
-textarea {
+textarea,
+select {
     background: none;
     border: none;
     outline: none;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif !important;
 }
 
 input:focus,
 input:active,
 textarea:focus,
 textarea:active {
-    border-bottom: 1px solid var(--accent-color);
+    /* border-bottom: 1px solid var(--accent-color); */
 }
 
 

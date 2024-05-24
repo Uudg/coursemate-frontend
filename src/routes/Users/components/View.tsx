@@ -29,7 +29,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({setEdit, user}) => {
     }, [user]);
 
     return (
-        <div className="grid">
+        <>
         <div className="user full column col col-sm-12">
             <div className="top">
                 <div className="bg">
@@ -75,7 +75,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({setEdit, user}) => {
             ) : (
                 <div>No posts</div>
             )} */}
-        </div>
+        </>
     );
 }
 

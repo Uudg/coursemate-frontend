@@ -8,23 +8,29 @@ import Filters from "./components/Filters";
 const Search = () => {
     const [results, setResults] = useState<{ posts: [], users: [] } | null>(null);
     const [input, setInput] = useState('');
+    const [localInput, setLocalInput] = useState('');
     const navigate = useNavigate();
     const location = useLocation();
 
-    // Parse the search query from the URL when the component mounts
     useEffect(() => {
         const params = new URLSearchParams(location.search);
         const query = params.get('q');
         if (query) {
-            setInput(query);
+            setLocalInput(query);
         }
-    }, [location.search]);
+    }, []);
 
-    // Update the URL when the search query changes
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setInput(localInput);
+        }, 200);
+
+        return () => clearTimeout(timer); 
+    }, [localInput]); 
+
     useEffect(() => {
         const params = new URLSearchParams(location.search);
-        const query = params.get('q');
-        // Only update the URL if the input state is different from the search query in the URL
+        const query = params.get('q');  
         if (input !== query) {
             navigate(`?q=${encodeURIComponent(input)}`);
         }
@@ -38,15 +44,11 @@ const Search = () => {
         }
     }, [input]);
 
-    useEffect(() => {
-        console.table(results);
-    }, [results]);
-
     return (
         <div className="search">
             <h1>Search</h1>
             <div className="grid">
-                <SearchBar setInput={setInput} input={input} />
+                <SearchBar setInput={setLocalInput} input={localInput} />
                 <Filters/>
                 {results && <Results results={results} />}
             </div>

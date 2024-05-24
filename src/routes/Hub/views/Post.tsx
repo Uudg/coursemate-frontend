@@ -41,24 +41,28 @@ const Post = () => {
 
     return (
         <>
-        {post ? (<>
-            <div className="post col col-sm-12">
+        {post ? (<div className="post grid">
+            <div className="col col-sm-12">
                 <div className="btns">
-                    <button onClick={() => navigate('/hub')}>Back to Hub</button>
+                    <button onClick={() => navigate(-1)} >
+                        <i id="back"></i>
+                    </button>
                 </div>
                 <div className="block">
                     <div className="grid">
-                        <div className="col col-md-1 col-sm-12">
+                        <div className="col col-md-2 col-xl-1 col-sm-12">
                             <div className="avatar" onClick={() => navigate('/users/' + post.author._id)}>
                                 <img src={`${import.meta.env.VITE_API_URL}/public/profile/${post.author._id}.jpg`} alt="Avatar image" />
                             </div>
                         </div>
-                        <div className="col col-md-8 col-sm-12 row a-center">
+                        <div className="col col-md-7 col-xl-8 col-sm-12 row a-center">
                             <div className="column">
                                 <div className="row a-center">
                                     <div className="name" onClick={() => navigate('/users/' + post.author._id)}>{post.author.fullname}</div>
                                 </div>
-                                <div className="uni">{post.author.university}</div>
+                                <div className="uni"
+                                onClick={() => navigate('/search/?q=' + encodeURIComponent(post.author.university))}
+                                >{post.author.university}</div>
                             </div>
                         </div>
                         <div className="col col-sm-12 col-md-3 column j-center">
@@ -66,7 +70,7 @@ const Post = () => {
                                 {post.created_at ? new Date(post.created_at).toLocaleString([], {month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' }) : ''}
                             </div>
                         </div>
-                        <div className="body col col-sm-12">
+                        <div className="content col col-sm-12">
                             {post.content}
                         </div>
                         <div className="tags col col-sm-12">
@@ -81,10 +85,11 @@ const Post = () => {
                         ))}
                         </div>
                     </div>
+                    
+            <Replies _id={post._id}/>
                 </div>
             </div>
-            <Replies _id={post._id}/>
-        </>
+        </div>
             ) : (
             'Loading...'
             )}

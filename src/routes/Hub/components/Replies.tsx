@@ -18,7 +18,7 @@ interface ReplyProps {
 
 const Replies: React.FC<Props> = ({_id}) => {
 
-    const [replies, setReplies] = useState<any[]>();
+    const [replies, setReplies] = useState<ReplyProps[] | null>(null);
     const [reply, setReply] = useState<string>('');
     const [loading, setLoading] = useState(false);
     useEffect(() => {
@@ -26,7 +26,9 @@ const Replies: React.FC<Props> = ({_id}) => {
     }, [])
 
     const get = () => {
-        setLoading(true)
+        if (!replies) {
+            setLoading(true)
+        }
         get_replies(_id)
         .then(res => {
             setReplies(res.data)
@@ -38,7 +40,9 @@ const Replies: React.FC<Props> = ({_id}) => {
     const del = (id: string) => {
         del_reply(id)
             .then(() => {
-                get()
+                if (replies) {
+                    setReplies(replies.filter(reply => reply && reply._id !== id));
+                }
             })
             .catch(err => console.error(err));
     } 
@@ -48,15 +52,25 @@ const Replies: React.FC<Props> = ({_id}) => {
         save_reply(_id, reply)
             .then(() => {
                 get()
-                setReply('')
+                setReply('');
             })
+            .catch(err => console.error(err));
     }
 
     return(
         <div className="column col col-sm-12" id="replies">
-            <div className="block">
+                    <form onSubmit={save} autoComplete="off">
+                        <label htmlFor="reply-input" className="row">
+                            <input 
+                                id="reply-input" 
+                                placeholder="Reply..."
+                                value={reply}
+                                onChange={(e) => setReply(e.target.value)}
+                            />
+                            <button className="row a-center"><span>Reply</span> <i className="center"></i></button>
+                        </label>
+                    </form>
                 <div className="replies column">
-                    <h4>Replies</h4>
                     {!loading && replies && replies.length > 0 ? (
                         replies.map((reply: ReplyProps, i: number) => (
                             <Reply key={i} reply={reply} del_reply={del}/>
@@ -67,18 +81,6 @@ const Replies: React.FC<Props> = ({_id}) => {
                         'Loading...'
                     )}
                 </div>
-                <form onSubmit={save} autoComplete="off">
-                    <label htmlFor="reply-input" className="row">
-                        <input 
-                            id="reply-input" 
-                            placeholder="Reply..."
-                            value={reply}
-                            onChange={(e) => setReply(e.target.value)}
-                        />
-                        <button className="row a-center">Submit <i className="center"></i></button>
-                    </label>
-                </form>
-            </div>
         </div>
     )
 }

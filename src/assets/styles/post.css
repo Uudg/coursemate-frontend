@@ -1,5 +1,4 @@
 .post {
-
     .btns {
         height: 100px;
         margin-bottom: 20px;
@@ -9,190 +8,260 @@
         button {
             background: none;
             color: var(--text);
-            border-radius: 12px;
-            border: 1px solid var(--text);
-        }
-    }
-
-
-.replies-container {
-    padding: 10px;
-}
-
-.body {
-    font-size: 1.1rem;
-}
-
-.avatar {
-    width: 70px;
-    height: 70px;
-    overflow: hidden;
-    border-radius: 50%;
-    margin-right: 20px;
-}
-
-.avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-label {
-    width: 100%;
-    /* background: rgba(0,0,0,0.1); */
-    /* border-radius: 10px; */
-    width: 100%;
-    cursor: pointer;
-    justify-content: space-between;
-    overflow: hidden;
-}
-
-form button {
-    background: none;
-    padding: 10px;
-    color: #000;
-    font-weight: 600;
-}
-
-.no {
-    font-weight: 600;
-    padding-bottom: 10px;
-}
-
-.replies {
-    border-bottom: 1px solid #ccc;
-}
-
-form i {
-    display: inline-block;
-    height: 24px;
-    width: 24px;
-    mask: url('../../../assets/svg/send.svg');
-    background: #000;
-    margin-left: 10px;
-}
-
-.input {
-    background: inherit;
-    padding: 20px;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.name,
-.university {
-    font-weight: 600;
-}
-
-.post h5 {
-    margin-bottom: 1rem;
-}
-
-.post .name {
-    font-size: 1.2rem;
-}
-
-.name:hover,
-.avatar:hover,
-.uni:hover {
-    cursor: pointer;
-    text-decoration: underline;
-}
-
-.date {
-    font-weight: 500;
-    color: #8a8a8a;
-    font-size: .8rem;
-    margin-left: 24px;
-    position: relative;
-}
-
-.uni {
-    font-size: .9rem;
-    font-weight: 500;
-}
-
-.user-data button {
-    margin-left: auto;
-    background: var(--main-color);
-    color: #000;
-    position: relative;
-    border: 1px solid;
-    border-radius: 10px;
-}
-
-.tags span {
-    color: var(--accent-color);
-    opacity: .6;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-.tags span:hover {
-    opacity: 1;
-}
-
-.reply {
-    display: flex;
-    margin-bottom: 20px;
-    width: 100%;
-}
-
-.reply .avatar {
-    width: 40px;
-    height: 40px;
-}
-
-.reply .name {
-    font-size: 1rem;
-}
-
-.reply .body {
-    margin-top: 10px;
-    font-size: 1rem;
-}
-
-.reply button {
-    background: none;
-    color: #000;
-    margin-left: auto;
-}
-}
-
-button.active {
-    background: var(--light-accent-color);
-}
-
-@media screen and (max-width: 600px) {
-
-    .create {
-        align-items: center;
-        height: 100%;
-
-        .btns {
-            padding: 20px;
-            justify-content: space-between;
-        }
-
-        .tags {
-            min-height: 1rem;
-            width: 100%;
-            word-wrap: normal;
-            flex-wrap: wrap;
-        }
-
-        .tags+input {
-            border: 1px solid #ccc;
+            border-radius: 100%;
+            background: #e7e7e7;
+            border: none;
             padding: 10px;
-            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            i#back {
+                display: block;
+                mask: url('../svg/arrow-left.svg');
+                background: var(--text);
+                opacity: .7;
+                width: 40px;
+                height: 40px;
+            }
         }
     }
 
-    .create>* {
-        width: 100%;
+    .content {
+        border-bottom: 1px solid #e7e7e7;
+        padding-bottom: 10px;
     }
 
-    .post {
+    .avatar {
+        width: 70px;
+        height: 70px;
+        overflow: hidden;
+        border-radius: 50%;
+        margin-right: 20px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    form {
+
+        margin-bottom: 20px;
+        
+        span {
+            font-size: .7rem;
+        }
+
+        label {
+            border-radius: 12px;
+            background: #e7e7e7;
+            padding: 0 10px;
+        }
+
+        input {
+            /* border: 1px solid var(--text); */
+            width: 100%;
+        }
+
+        button {
+            background: none;
+            padding: 10px;
+            color: #000;
+            font-weight: 600;
+        }
+
+        i {
+            display: inline-block;
+            height: 24px;
+            width: 24px;
+            mask: url('./../svg/send.svg');
+            background: var(--text);
+            margin-left: 10px;
+        }
+    }
+
+    .no {
+        font-weight: 600;
+        padding-bottom: 10px;
+    }
+
+    .name,
+    .university {
+        font-weight: 600;
+    }
+
+    h5 {
+        margin-bottom: 1rem;
+    }
+
+    .name {
+        font-size: 1.2rem;
+    }
+
+    .name:hover,
+    .avatar:hover,
+    .uni:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+    .date {
+        font-weight: 500;
+        color: #8a8a8a;
+        font-size: .8rem;
+        margin-left: 24px;
+        position: relative;
+        display: flex;  
+        justify-content: flex-end;
+    }
+
+    .uni {
+        font-size: .9rem;
+        font-weight: 500;
+    }
+
+    .user-data {
+        button {
+            margin-left: auto;
+            background: var(--main-color);
+            color: #000;
+            position: relative;
+            border: 1px solid;
+            border-radius: 10px;
+        }
+    }
+
+    .tags {
+
+        h5 {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        span {
+            color: var(--accent-color);
+            opacity: .6;
+            border-radius: 10px;
+            cursor: pointer;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+
+    .reply {
+        display: flex;
+        padding: 10px 0;
+        width: 100%;
+        /* height: 80px; */
+        overflow: hidden;
+        border-bottom: 1px solid #E7E7E7;
+
+        .avatar {
+            width: 50px;
+            height: 90%;
+            position: relative;
+            border-radius: 0;
+            flex-shrink: 0;
+            position: relative;
+            margin-right: 4px;
+            box-sizing: border-box;
+            overflow: visible;
+
+            div {
+                width: 40px;
+                height: 40px;
+                overflow: hidden;
+                border-radius: 50%;
+            }
+        }
+
+        .name {
+            font-size: .8rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .body {
+            font-size: .9rem;
+        }
+
+        button {
+            background: none;
+            color: #000;
+            margin-left: auto;
+            width: 30px;
+            height: 30px;
+
+            i {
+                display: inline-block;
+                mask: url('../svg/delete.svg');
+                background: #e7e7e7;
+                width: 24px;
+                height: 24px;
+                transition: .3s;
+            }
+        }
+
+        button:hover {
+            opacity: 1;
+
+            i {
+                background: var(--accent-color);
+            }
+        }
+    }
+
+    .reply:last-child {
+        border-bottom: none;
+    }
+
+    button.active {
+        background: var(--light-accent-color);
+    }
+
+    @media screen and (max-width: 600px) {
+        form {
+            span {
+                display: none;
+            }
+        }
+
+        .create {
+            align-items: center;
+            height: 100%;
+
+            .btns {
+                padding: 20px;
+                justify-content: space-between;
+
+            }
+
+            .tags {
+                min-height: 1rem;
+                width: 100%;
+                word-wrap: normal;
+                flex-wrap: wrap;
+
+                h5 {
+                    margin-top: 0;
+                    margin-bottom: 0;
+                }
+            }
+
+            .tags+input {
+                border: 1px solid #ccc;
+                padding: 10px;
+                width: 100%;
+            }
+        }
+
+        .create>* {
+            width: 100%;
+        }
 
         .user-data {
             flex-wrap: wrap;
@@ -203,12 +272,14 @@ button.active {
             height: 50px;
         }
 
-        .user-data button {
-            transform: scale(0.8);
-            padding: 0;
-            border: none;
-            background: none;
-            color: var(--accent-color);
+        .user-data {
+            button {
+                transform: scale(0.8);
+                padding: 0;
+                border: none;
+                background: none;
+                color: var(--accent-color);
+            }
         }
 
         h3 {

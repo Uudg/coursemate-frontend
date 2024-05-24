@@ -14,10 +14,18 @@ const PostPreview = ({ post }: { post: Post }) => {
 
     const handleLike = async () => {
         try {
-            await like(_id);
-            setLiked(!liked);
-            setLikes(liked ? likes - 1 : likes + 1);
-            setDisliked(false);
+            if (liked) {
+                setLiked(false);
+                setLikes(likes - 1);
+            } else {
+                await like(_id);
+                setLiked(true);
+                setLikes(likes + 1);
+                if (disliked) {
+                    setDisliked(false);
+                    setDislikes(dislikes - 1);
+                }
+            }
         } catch (err) {
             console.error(err);
         }
@@ -25,10 +33,18 @@ const PostPreview = ({ post }: { post: Post }) => {
 
     const handleDislike = async () => {
         try {
-            await dislike(_id);
-            setDisliked(!disliked);
-            setDislikes(disliked ? dislikes - 1 : dislikes + 1);
-            setLiked(false);
+            if (disliked) {
+                setDisliked(false);
+                setDislikes(dislikes - 1);
+            } else {
+                await dislike(_id);
+                setDisliked(true);
+                setDislikes(dislikes + 1);
+                if (liked) {
+                    setLiked(false);
+                    setLikes(likes - 1);
+                }
+            }
         } catch (err) {
             console.error(err);
         }

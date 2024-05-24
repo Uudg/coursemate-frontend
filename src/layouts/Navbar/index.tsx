@@ -32,7 +32,8 @@ return(
                         <div className="avatar placeholder">
                             🤨
                         </div>
-                    }</div>
+                    }
+                </div>
                 <div className="fullname">{user ? user.fullname : 'Loading...'}</div>
                 <div className="username">@{ user.username}</div>
             </div>

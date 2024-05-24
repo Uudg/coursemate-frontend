@@ -18,7 +18,10 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         if (token) {
             axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
             const user = JSON.parse(localStorage.getItem('user') || '{}')
+            console.log(user);
             setUser(user);
+        } else {
+            setUser(null);
         }
         setIsLoading(false); // Set loading to false after checking auth
     }, [])

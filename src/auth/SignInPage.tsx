@@ -20,6 +20,7 @@ const SignInPage = () => {
         <div className="auth center">
             <div className="form column a-center">
                 <h2>Sign in</h2>
+                <p>Login into your account</p>
                 <form onSubmit={(e) => handleForm(e)}>
                     <label htmlFor="username">
                         <input type="text" id="username" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)}/>

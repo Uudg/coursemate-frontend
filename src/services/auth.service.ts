@@ -30,6 +30,7 @@ export const sign_up = async (user: SignUpUser) => {
 
 export const sign_out = () => {
     Cookies.remove('auth-token');
+    localStorage.removeItem('user');
     delete axios.defaults.headers.common['Authorization'];
 }
 

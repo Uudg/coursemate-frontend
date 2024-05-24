@@ -1,13 +1,23 @@
 .auth {
     width: 100vw;
     min-height: 100vh;
+    background: #fff;
 
     .form {
         padding: 20px;
         /* width: 440px; */
-        background: #fff;
         border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+        font-size: 2rem;
+        margin: 0;
+    }
+
+    p {
+        margin: 0;
+        color: #8B8B8B;
+        margin-bottom: 10px;
     }
 
     form {
@@ -24,11 +34,12 @@
         input,
         select {
             width: 400px;
-            background: #fff;
-            padding: 10px;
+            padding: 10px 20px;
             margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            border-radius: 14px;
+            background: #F3F3F3;
+            border: 1px solid #B3B3B3;
+            font-weight: 500;
         }
 
         select {
@@ -48,8 +59,9 @@
     }
 
     button {
-        color: #fff;
-        background: var(--accent-color);
+        border: 1px solid var(--text);
+        background: #FFF;
+        color: var(--text);
         padding: 8px 20px;
         width: 100%;
         border-radius: 5px;
