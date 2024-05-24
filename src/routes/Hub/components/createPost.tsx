@@ -70,7 +70,7 @@ const CreatePost = () => {
         {!active ?
             <div className="row a-center top" onClick={() => setActive(!active)}>
                 <div className="avatar">
-                    <img src={`${import.meta.env.VITE_API_URL}/public/profile/${user.id}.jpg`} alt="" />
+                    <img src={`${import.meta.env.VITE_API_URL}/public/profile/${user._id}.jpg`} alt="" />
                 </div>
                 <p>What's happening?</p>
             </div>
