@@ -22,18 +22,6 @@
     border: none;
 }
 
-.user .avatar {
-    position: absolute;
-    top: 200px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 5px solid #fff;
-}
-
 .avatar.placeholder {
     display: flex;
     justify-content: center;
@@ -42,6 +30,22 @@
 
     background: var(--light-accent-color);
 }
+
+.user.full {
+
+    .avatar {
+        position: absolute;
+        top: 200px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 5px solid #fff;
+    }
+}
+
 
 .user .body {
     padding: 20px;

@@ -16,7 +16,17 @@ const Users = ({users}: Props) => {
                             <div className="col col-sm-10 col-lg-10 column j-center">
                                 <div className="row wrap">      
                                     <div className="user-img">
-                                        <img src={`${import.meta.env.VITE_API_URL}/public/profile/${user._id}.jpg`} alt="" />
+                                        {
+                                            user.profile_img
+                                            ?
+                                            <div className="avatar">
+                                                    <img src={`${import.meta.env.VITE_API_URL}/public/profile/${user._id}.jpg`} alt="" />  
+                                            </div>
+                                            :
+                                            <div className="avatar placeholder">
+                                                🤨
+                                            </div>
+                                        }
                                     </div>
                                     <div className=" column j-center">
                                         <div className="name">{user.fullname}</div>

@@ -10,9 +10,6 @@ const Navbar = () => {
 
     const {user} = useAuth();
 
-    useEffect(() => {
-        console.log(user)
-    }, [user])
     if (!user) return null;
 
     useEffect(() => {
@@ -32,8 +29,8 @@ return(
                                 <img src={`${import.meta.env.VITE_API_URL}/public/profile/${user._id}.jpg`} alt="" />  
                         </div>
                         :
-                        <div className="avatar">
-                                <img src={`${import.meta.env.VITE_API_URL}/public/profile/${user._id}.jpg`} alt="" />  
+                        <div className="avatar placeholder">
+                            🤨
                         </div>
                     }</div>
                 <div className="fullname">{user ? user.fullname : 'Loading...'}</div>
@@ -76,7 +73,7 @@ return(
                     <i id="hub"></i>
                     Mate Hub
                 </NavLink>
-                <NavLink to={`/users/${ user.id}`}
+                <NavLink to={`/users/${ user._id}`}
                     className={({ isActive, isPending }) =>
                         isPending ? "pending" : isActive ? "active" : ""
                     }
@@ -97,9 +94,9 @@ return(
                 <div></div>
             </div>
 
-            <div className="profile-mobile" onClick={() =>  navigate('/users/' + user.id)}>
+            <div className="profile-mobile" onClick={() =>  navigate('/users/' + user._id)}>
                 <div className="avatar">
-                    <img src={`${import.meta.env.VITE_API_URL}/public/profile/${ user.id}.jpg`} alt="Avatar image" />
+                    <img src={`${import.meta.env.VITE_API_URL}/public/profile/${ user._id}.jpg`} alt="Avatar image" />
                 </div>
                 <div className="username">@{ user.username}</div> 
             </div>

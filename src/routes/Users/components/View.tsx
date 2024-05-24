@@ -2,7 +2,6 @@
 // import PostPreview from "../Hub/Posts/PostPreview";
 import { useEffect, useState } from "react";
 import { get_post_user } from "../../../api/hub";
-import profile_image from '../../../assets/svg/profile.svg';
 
 interface ProfileViewProps {
   setEdit: (value: boolean) => void;
@@ -31,7 +30,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({setEdit, user}) => {
 
     return (
         <div className="grid">
-        <div className="user column col col-sm-12">
+        <div className="user full column col col-sm-12">
             <div className="top">
                 <div className="bg">
                     {/* {user.bg_img ? <img src={`${import.meta.env.VITE_API_URL}/public/bg/${user._id}.jpg`} alt="" /> : ''} */}
