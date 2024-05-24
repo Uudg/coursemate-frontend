@@ -3,9 +3,14 @@ import { useRef, useState } from "react";
 import { update_user } from "../../../api/user";
 import { statuses } from "../../../data";
 
-const Edit = ({setEdit, user: initialUser}) => {
+interface Props {
+    setEdit: (value: boolean) => void;
+    data: any;
+}
 
-    const [user, setUser] = useState(initialUser);
+const Edit = ({setEdit, data}: Props) => {
+
+    const [user, setUser] = useState(data);
 
     const bgFileInputRef = useRef<HTMLInputElement>(null);
     const avatarFileInputRef = useRef<HTMLInputElement>(null);
@@ -44,14 +49,14 @@ const Edit = ({setEdit, user: initialUser}) => {
         const formData = new FormData();
         if (bgFile) {
             formData.append('bg', bgFile);
-            await setUser(prev => ({
+            await setUser((prev: any) => ({
                 ...prev,
                 bg_img: true
             }))
         }
         if (avatarFile) {
             formData.append('avatar', avatarFile);
-            await setUser(prev => ({
+            await setUser((prev: any) => ({
                 ...prev,
                 profile_img: true
             }))

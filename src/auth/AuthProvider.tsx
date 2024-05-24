@@ -11,6 +11,7 @@ interface AuthProviderProps {
 
 const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     const [user, setUser] = useState<LoggedInUser | null>(null);
+    const [isLoading, setIsLoading] = useState(true); // Added loading state
 
     useEffect(() => {
         const token = Cookies.get('auth-token')
@@ -19,10 +20,11 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
             const user = JSON.parse(localStorage.getItem('user') || '{}')
             setUser(user);
         }
+        setIsLoading(false); // Set loading to false after checking auth
     }, [])
 
     const signIn = async (username: string, password: string) => {
-        const user = await sign_in(username, password);
+        await sign_in(username, password);
         localStorage.setItem('user', JSON.stringify(user));
         setUser(user);
     };
@@ -46,12 +48,15 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         changePasword: change_password
     };
 
+    if (isLoading) {
+        return <div>Loading...</div>; // Replace with your loading spinner
+    }
+
     return (
         <AuthContext.Provider value={contextValue}>
             {children}
         </AuthContext.Provider>
     );
 }
-
 
 export default AuthProvider;

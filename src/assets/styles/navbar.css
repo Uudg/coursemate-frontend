@@ -3,7 +3,7 @@
     top: 0;
     left: 0;
     height: 100vh;
-    background: #fff;
+    /* background: #fff; */
     overflow-y: auto;
     z-index: 100;
 }
@@ -122,12 +122,22 @@
     transition: .2s;
 }
 
+.navs a:hover {
+    background: var(--light-accent-color);
+    /* color: var(--accent-color);
+
+    i {
+        background: var(--accent-color);
+    } */
+}
+
 .navs i {
     height: 22px;
     width: 22px;
     display: inline-block;
     margin-right: 8px;
     background: var(--text);
+    transition: inherit;
 
 }
 

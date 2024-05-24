@@ -65,13 +65,13 @@ const PostPreview = ({ post }: { post: Post }) => {
             <div className={`bot row`}>
                 <div className={`data row`}>
                     <button className={`likes ${liked ? 'active' : ''}`} onClick={handleLike}>
-                        {likes ? likes : 0} Likes
+                        <i id="likes"> </i>{likes ? likes : 0}
                     </button>
                     <button className={`dislikes ${disliked ? 'active' : ''}`} onClick={handleDislike}>
-                        {dislikes ? dislikes : 0} Dislikes
+                        <i id="dislikes"> </i>{dislikes ? dislikes : 0}
                     </button>
                     <button className="replies" onClick={() => navigate(`/hub/${_id}`)}>
-                        {replies} Replies
+                        <i id="replies"> </i>{replies}
                     </button>
                 </div>
                 <button className="reply">

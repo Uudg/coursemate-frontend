@@ -9,6 +9,10 @@ const Navbar = () => {
     const location  = useLocation();
 
     const {user} = useAuth();
+
+    useEffect(() => {
+        console.log(user)
+    }, [user])
     if (!user) return null;
 
     useEffect(() => {
@@ -21,8 +25,17 @@ return(
         <div className={`navbar fixed ${mobile ? 'mobile' : ''}`}>
             <div className="profile column a-center" onClick={() =>  navigate('/users/' + user.id)}>
                 <div className="avatar">
-                    <img src={`${import.meta.env.VITE_API_URL}/public/profile/${ user.id}.jpg`} alt="Avatar image" />
-                </div>
+                    {
+                        user.profile_img
+                        ?
+                        <div className="avatar">
+                                <img src={`${import.meta.env.VITE_API_URL}/public/profile/${user._id}.jpg`} alt="" />  
+                        </div>
+                        :
+                        <div className="avatar">
+                                <img src={`${import.meta.env.VITE_API_URL}/public/profile/${user._id}.jpg`} alt="" />  
+                        </div>
+                    }</div>
                 <div className="fullname">{user ? user.fullname : 'Loading...'}</div>
                 <div className="username">@{ user.username}</div>
             </div>

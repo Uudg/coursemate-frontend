@@ -1,0 +1,117 @@
+.search {
+    .searchBar {
+        /* height: 70px; */
+        background: #E7E7E7;
+        border-radius: 16px;
+        
+        label {
+            width: 100%;
+            
+            input {
+                background: none;
+                box-sizing: border-box;
+                font-size: 1.3rem;
+                font-weight: 500;
+                height: 40px;
+                height: 100%;
+                width: 100%;
+            }
+        }
+
+        input:focus {
+            border-bottom: none;
+        }
+
+    }
+
+    .filters {
+        button {
+            background: #E7E7E7;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text);
+            margin-right: 10px;
+            padding: 10px 15px;
+
+            i {
+                width: 0;
+                height: 0;
+                margin-left: 10px;
+                display: inline-block;
+                border-left: 8px solid transparent;
+                border-right: 8px solid transparent;
+                border-top: 10px solid var(--text);
+                border-radius: 2px;
+            }
+        }
+    }
+
+    .results {
+
+        h2 {
+            margin-top: 0;
+        }
+
+        .post-preview {
+            padding: 0;
+            border-bottom: 1px solid #E7E7E7;
+            padding-bottom: 20px;
+            border-radius: 0;
+        }
+
+        .post-preview:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        i {
+            display: inline-block;
+            transform: scale(.8);
+        }
+
+        .user {
+            margin-bottom: 0;
+            padding-bottom: 20px;
+            border-radius: 0;
+            border-bottom: 1px solid #E7E7E7;
+            cursor: pointer;
+
+            .caption {
+                font-weight: 600;
+                font-size: .8rem;
+            }
+
+            .name {
+                font-weight: 600;
+                font-size: 1.2rem;
+            }
+
+            .uni {
+                font-size: 1rem;
+            }
+
+            .location {
+                opacity: .7;
+            }
+        }
+
+        .user:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .user:hover .user-info {
+            text-decoration: underline;
+        }
+
+        .user-img {
+            height: 120px;
+            width: 120px;
+            border-radius: 28px;
+            overflow: hidden;
+            margin-right: 20px;
+        }
+
+    }
+}

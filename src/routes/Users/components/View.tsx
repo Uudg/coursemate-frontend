@@ -2,10 +2,15 @@
 // import PostPreview from "../Hub/Posts/PostPreview";
 import { useEffect, useState } from "react";
 import { get_post_user } from "../../../api/hub";
+import profile_image from '../../../assets/svg/profile.svg';
 
+interface ProfileViewProps {
+  setEdit: (value: boolean) => void;
+  user: any; // Replace 'any' with the actual type of 'user'
+}
 
-const ProfileView = ({setEdit, user}) => {
-    console.log(user)
+const ProfileView: React.FC<ProfileViewProps> = ({setEdit, user}) => {
+     console.log(user)
     const [posts, setPosts] = useState([]);
     const [validEdit, setValid] = useState(false);
     const get = () => { 
@@ -31,9 +36,17 @@ const ProfileView = ({setEdit, user}) => {
                 <div className="bg">
                     {/* {user.bg_img ? <img src={`${import.meta.env.VITE_API_URL}/public/bg/${user._id}.jpg`} alt="" /> : ''} */}
                 </div>
-                <div className="avatar">
-                    <img src={`${import.meta.env.VITE_API_URL}/public/profile/${user._id}.jpg`} alt="" />
-                </div>
+                    {
+                        user.profile_img
+                        ?
+                        <div className="avatar">
+                                <img src={`${import.meta.env.VITE_API_URL}/public/profile/${user._id}.jpg`} alt="" />  
+                        </div>
+                        :
+                        <div className="avatar placeholder">
+                            🤨
+                        </div>
+                    }
             </div>
             <div className="body column">
                 {validEdit ? <button className="edit" onClick={() => setEdit(true)}>Edit</button> : <button className="edit">Message</button>}

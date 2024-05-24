@@ -7,6 +7,7 @@
 @import './users.css';
 @import './post.css';
 @import './settings.css';
+@import './search.css';
 
 .view {
     margin-bottom: 40px;
@@ -21,7 +22,27 @@
     border-radius: 20px;
 }
 
+button.friend {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--light-accent-color);
+    color: var(--text);
+    font-weight: 600;
+    font-size: .9rem;
+    padding: 16px 14px;
+    border-radius: 12px;
 
+    i {
+        display: inline-block;
+        width: 28px;
+        height: 28px;
+        mask: url('../svg/mate.svg') no-repeat center;
+        margin-right: 10px;
+        background: var(--accent-color);
+        transform: none !important;
+    }
+}
 
 h3 {
     font-size: 2.5rem;
@@ -54,6 +75,7 @@ textarea {
     background: none;
     border: none;
     outline: none;
+    font-family: 'Poppins', sans-serif;
 }
 
 input:focus,

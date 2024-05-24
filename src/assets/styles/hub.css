@@ -77,6 +77,13 @@ button {
 
     button {
         border-radius: 10px;
+
+        i {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            display: flex;
+        }
     }
 
     .cancel {
@@ -102,10 +109,57 @@ button {
 
 .post-preview {
 
+    .data {
+
+        button {
+            display: flex;
+            border-radius: 12px;
+            padding: 4px 8px;
+            justify-content: center;
+            font-weight: 600;
+            font-size: .8rem;
+            align-items: center;
+        }
+
+        button.active {
+            background: var(--light-accent-color);
+            /* opacity: .7; */
+
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+
+            i {
+                background: var(--accent-color);
+            }
+        }
+
+        i {
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                background: #000;
+                margin-right: 6px;
+                background-repeat: none;
+            }
+        
+            #likes {
+                mask: url('../svg/like.svg');
+            }
+        
+            #dislikes {
+                mask: url('../svg/like.svg');
+                transform: rotate(180deg);
+            }
+
+            #replies {
+                mask: url('../svg/replies.svg');
+            }
+    }
+
+
     padding: 22px 30px;
     background: #fff;
     border-radius: 20px;
-    margin-bottom: 20px;
 
     .user-img {
         width: 50px !important;
@@ -208,16 +262,37 @@ button {
 
 .types {
     margin-bottom: 20px;
-    border-radius: 20px;
     font-family: 'Poppins';
 
+    i {
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        margin-right: 6px;
+        background-repeat: none;
+        background: var(--text);
+    }
+
+    #trending {
+        mask: url('../svg/trending.svg');
+    }
+
+    #following {
+        mask: url('../svg/following.svg');
+    }
+
+    #new {
+        mask: url('../svg/new.svg');
+    }
+
     .type {
-        padding: 20px 40px;
+        padding: 20px;
         background: none;
         color: #000;
         font-size: 1.2rem;
         font-weight: 600;
         margin-right: 20px;
+        border-radius: 12px;
     }
 
     .active {

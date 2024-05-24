@@ -34,6 +34,15 @@
     border: 5px solid #fff;
 }
 
+.avatar.placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5rem;
+
+    background: var(--light-accent-color);
+}
+
 .user .body {
     padding: 20px;
 }
@@ -62,16 +71,8 @@
     font-weight: 400;
 }
 
-.user .uni i {
-    margin-right: 10px;
-    width: 24px;
-    height: 24px;
-    mask: url('../../assets//svg/uni.svg');
-    background: #8a8a8a;
-}
-
 .user .username {
-    color: var(--light-accent-color);
+    color: var(--accent-color);
     font-size: 1.2rem;
     padding: 10px;
 }
@@ -80,6 +81,22 @@
     font-weight: 300;
 }
 
+.user .uni i,
+.user .location i {
+    margin-right: 10px;
+    width: 24px;
+    height: 24px;
+    background: #8a8a8a;
+    background-repeat: no-repeat;
+}
+
+.user .uni i {
+    mask: url('../../assets/svg/uni.svg');
+}
+
+.user .location i {
+    mask: url('../../assets/svg/location.svg');
+}
 .user .mates:hover {
     color: var(--accent-color);
     cursor: pointer;

@@ -53,30 +53,32 @@ const Replies: React.FC<Props> = ({_id}) => {
     }
 
     return(
-        <div className="column replies-container" id="replies">
-        <div className="replies column">
-            <h4>Replies</h4>
-            {!loading && replies && replies.length > 0 ? (
-                replies.map((reply: ReplyProps, i: number) => (
-                    <Reply key={i} reply={reply} del_reply={del}/>
-                ))
-            ) : !loading && replies && replies.length === 0 ? (
-                <div className="no"> No replies yet </div>
-            ) : (
-                'Loading...'
-            )}
-        </div>
-        <form onSubmit={save} autoComplete="off">
-                <label htmlFor="reply-input" className="row">
-                    <input 
-                        id="reply-input" 
-                        placeholder="Reply..."
-                        value={reply}
-                        onChange={(e) => setReply(e.target.value)}
-                    />
-                    <button className="row a-center">Submit <i className="center"></i></button>
-                </label>
-            </form>
+        <div className="column col col-sm-12" id="replies">
+            <div className="block">
+                <div className="replies column">
+                    <h4>Replies</h4>
+                    {!loading && replies && replies.length > 0 ? (
+                        replies.map((reply: ReplyProps, i: number) => (
+                            <Reply key={i} reply={reply} del_reply={del}/>
+                        ))
+                    ) : !loading && replies && replies.length === 0 ? (
+                        <div className="no"> No replies yet </div>
+                    ) : (
+                        'Loading...'
+                    )}
+                </div>
+                <form onSubmit={save} autoComplete="off">
+                    <label htmlFor="reply-input" className="row">
+                        <input 
+                            id="reply-input" 
+                            placeholder="Reply..."
+                            value={reply}
+                            onChange={(e) => setReply(e.target.value)}
+                        />
+                        <button className="row a-center">Submit <i className="center"></i></button>
+                    </label>
+                </form>
+            </div>
         </div>
     )
 }
