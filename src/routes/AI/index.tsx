@@ -4,6 +4,7 @@ import useAuth from "../../auth/useAuth"
 import Markdown from "react-markdown"
 import { chat } from "../../api/ai"
 
+
 interface Message {
     role: string,
     content: string

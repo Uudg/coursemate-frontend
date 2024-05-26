@@ -157,6 +157,10 @@
                 }
             }
         }
+
+        .code {
+            background: red;
+        }
 }
 
 

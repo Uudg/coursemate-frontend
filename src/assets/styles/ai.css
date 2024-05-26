@@ -96,6 +96,13 @@
                 word-wrap: break-word;
                 overflow-wrap: break-word;
                 box-sizing: border-box;
+
+                pre:has(code) {
+                    padding: 10px;
+                    background: #0d0d0d;
+                    color: #fff;
+                    border-radius: 6px;
+                }
             }
         }
 
