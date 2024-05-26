@@ -73,12 +73,25 @@
         }
 
         i {
-            display: inline-block;
+            /* display: inline-block; */
             height: 24px;
             width: 24px;
-            mask: url('./../svg/send.svg');
             background: var(--text);
             margin-left: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        i#send {
+            mask: url('./../svg/send.svg');
+        }
+
+        i#attach {
+            margin-left: 0;
+            padding: 0;
+            opacity: .6;
+            mask: url('./../svg/clip.svg');
         }
     }
 

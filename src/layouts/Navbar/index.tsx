@@ -20,7 +20,7 @@ const Navbar = () => {
 
 return(
         <div className={`navbar fixed ${mobile ? 'mobile' : ''}`}>
-            <div className="profile column a-center" onClick={() =>  navigate('/users/' + user.id)}>
+            <div className="profile column a-center" onClick={() =>  navigate('/users/' + user._id)}>
                 <div className="avatar">
                     {
                         user.profile_img

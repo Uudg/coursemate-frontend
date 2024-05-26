@@ -8,6 +8,7 @@
 @import './post.css';
 @import './settings.css';
 @import './search.css';
+@import './ai.css';
 
 .view {
     margin-bottom: 40px;
