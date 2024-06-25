@@ -1,5 +1,5 @@
 // import Props from "./Props";
-// import PostPreview from "../Hub/Posts/PostPreview";
+import PostPreview from "../../Hub/components/PostPreview";
 import { useEffect, useState } from "react";
 import { get_post_user } from "../../../api/hub";
 
@@ -68,13 +68,13 @@ const ProfileView: React.FC<ProfileViewProps> = ({setEdit, user}) => {
                 </div>
             </div>
         </div>
-            {/* {posts && posts.length > 0 ? (
+            {posts && posts.length > 0 ? (
                 posts.map((post: any, i: number) => (
                     <PostPreview key={i} post={post} />
                 ))
             ) : (
                 <div>No posts</div>
-            )} */}
+            )}
         </>
     );
 }

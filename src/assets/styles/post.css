@@ -1,4 +1,10 @@
 .post {
+
+    h3 {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
     .btns {
         height: 100px;
         margin-bottom: 20px;
@@ -293,10 +299,6 @@
                 background: none;
                 color: var(--accent-color);
             }
-        }
-
-        h3 {
-            font-size: 2rem;
         }
     }
 }

@@ -1,5 +1,5 @@
 import { statuses, universities, faculties } from '../data';
-import { FocusEvent, FormEvent, useState } from 'react';
+import { FormEvent, useState } from 'react';
 // import { check_username, generate_code, confirm_code, signup } from '../../api/auth';
 import { check_username, sign_up} from '../services/auth.service'
 import { useNavigate } from 'react-router-dom';

@@ -67,7 +67,7 @@ const Replies: React.FC<Props> = ({_id}) => {
                                 value={reply}
                                 onChange={(e) => setReply(e.target.value)}
                             />
-                            <button className="row a-center"><span>Reply</span> <i className="center"></i></button>
+                            <button className="row a-center"><span>Reply</span> <i className="center" id="send"></i></button>
                         </label>
                     </form>
                 <div className="replies column">

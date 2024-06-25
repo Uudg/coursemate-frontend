@@ -70,6 +70,11 @@ const Post = () => {
                                 {post.created_at ? new Date(post.created_at).toLocaleString([], {month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' }) : ''}
                             </div>
                         </div>
+                        <div className="col col-sm-12">
+                            <h3>
+                                {post.title}
+                            </h3>
+                        </div>
                         <div className="content col col-sm-12">
                             {post.content}
                         </div>
