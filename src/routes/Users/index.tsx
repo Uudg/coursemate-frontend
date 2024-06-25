@@ -36,11 +36,11 @@ const User = () => {
         <>
             <h1>Account</h1>
             <div className="grid">
-                {/* {user &&
+                {user &&
                     edit ?
-                    <Edit setEdit={setEdit} user={user}/> :
+                    <Edit setEdit={setEdit} data={user}/> :
                     <View setEdit={setEdit} user={user}/>
-                } */}
+                }
 
                 {
                     user && <View setEdit={setEdit} user={user}/>
