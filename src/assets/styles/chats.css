@@ -1,10 +1,9 @@
 .chat-preview {
     height: 100px;
-    background: #fff;
     padding: 20px;
     cursor: pointer;
-    border-radius: 20px;
     margin-bottom: 20px;
+    border-bottom: 1px solid #e7e7e7;
 
     &:hover .title {
         text-decoration: underline;
@@ -29,15 +28,25 @@
     }
 
     .avatar {
+        height: 100%;
+        width: 100px;
         position: relative;
         overflow: visible;
+        margin-right: 20px;
+        flex-shrink: 0;
     }
 
     .img {
-        width: 100%;
-        height: 100%;
         overflow: hidden;
         border-radius: 50%;
+        width: 100%;
+        height: 100%;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     }
 
     .members {
@@ -52,22 +61,33 @@
 }
 
 .chats {
-    margin-top: 20px;
+    min-height: calc(90vh);
 
-    &.active {
+    .active {
         display: flex;
         height: 500px;
-        overflow-y: auto;
+        overflow-y: scroll;
+        scrollbar-width: thin;
         flex-direction: row;
         background: #fff;
         border-radius: 20px;
 
         .list {
+            padding-top: 20px;
+            padding-right: 20px;
             width: fit-content;
             border-right: 1px solid rgba(0, 0, 0, .1);
         }
 
         .chat-preview {
+            
+            padding: 10px;
+            width: 100px;
+            height: auto;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 0;
             .last {
                 display: none;
             }
@@ -76,30 +96,37 @@
                 display: none;
             }
 
-            width: 100px;
-            height: auto;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-
             .avatar {
+                width: 50px;
+                height: 50px;
                 margin-bottom: 10px;
+                margin-right: 0;
+
+                .members {
+                    transform: scale(.5);
+                }
             }
 
             .title {
                 font-size: .8rem;
+                text-align: center;
             }
         }
     }
 
         .chat {
-            background: #fff;
-            border-radius: 20px;
+            height: 100%;
             width: 100%;
+            padding-left: 20px;
+            box-sizing: border-box;
+
+            .post {
+                margin-top: auto;
+            }
     
             .message {
-                background: rgba(0, 0, 0, .1);
-                border-radius: 20px;
+                background: var(--background);
+                border-radius: 10px;
                 margin-bottom: 20px;
                 padding: 10px 20px;
                 max-width: 50%;
@@ -110,7 +137,7 @@
                 word-wrap: break-word;
                 overflow-wrap: break-word;
     
-                &.active {
+                block.active {
                     border: 1px solid var(--accent-color);
                     align-self: flex-end;
                 }
@@ -133,15 +160,6 @@
                 }
             }
     
-            form {
-                padding: 20px;
-    
-                input {
-                    width: 100%;
-                    padding: 20px;
-                }
-            }
-    
             .date {
                 font-weight: 300;
                 font-size: .8rem;
@@ -150,10 +168,6 @@
     
                 &::after {
                     display: none;
-                }
-    
-                .message.active & {
-                    /* color: #fff !important; */
                 }
             }
         }
@@ -168,6 +182,22 @@
     display: flex;
     overflow: auto;
     flex-direction: column;
-    height: 400px;
-    padding: 20px;
+    /* padding: 20px; */
+}
+
+@media screen and (max-width: 768px){
+    .chat-preview {
+
+        padding: 0;
+        box-sizing: border-box;
+
+
+        .avatar {
+            transform: scale(.7);
+        }
+
+        .unread {
+            transform: scale(.6);
+        }
+    }
 }

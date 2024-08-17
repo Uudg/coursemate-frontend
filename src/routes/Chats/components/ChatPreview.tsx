@@ -7,7 +7,7 @@ const ChatPreview: React.FC<ChatPreviewProps> = ({ chat, setChat }) => {
     return ( 
         chat && (
             <div className="chat-preview row a-center" onClick={() => setChat(chat._id)}>
-                <div className="avatar">
+                <div className="avatar center">
                     <div className="members">{chat.members.length}</div>
                     <div className="img">
                         <img src="https://via.placeholder.com/150" alt="Avatar" />

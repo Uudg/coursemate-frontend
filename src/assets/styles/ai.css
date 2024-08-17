@@ -1,16 +1,22 @@
+.chat-window {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+
+    .block {
+        flex-grow: 1;
+
+        form {
+            margin-top: 20px;
+            margin-bottom: 0;
+        }
+    }
+}
+
 .ai {
 
     height: calc(100vh - 40px);
 
-    .chat-window {
-        flex-grow: 1;
-        display: flex;
-        flex-direction: column;
-
-        .block {
-            flex-grow: 1;
-        }
-    }
     
 
     .history {
@@ -21,10 +27,6 @@
     }
 
     /* .post for form to be same as in post to reply */
-    .post form {
-        margin-top: 20px;
-        margin-bottom: 0;
-    }
 
 
     .chat {

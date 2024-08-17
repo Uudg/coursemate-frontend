@@ -130,6 +130,10 @@ button {
             font-size: .8rem;
             align-items: center;
             padding: 2px 20px;
+
+            .number {
+                min-width: 1rem;
+            }
         }
 
         button.active {
@@ -276,7 +280,7 @@ button {
 }
 
 .types {
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 
     i {
         display: inline-block;

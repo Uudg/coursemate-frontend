@@ -100,10 +100,23 @@ const Chat: React.FC<ChatProps> = ({ id }) => {
                 ))}
                 <div ref={messagesEndRef} />
             </div>
-            <form onSubmit={(e) => send(e)} className="row">
+            <div className="post">
+                <form autoComplete="off" onSubmit={(e) => send(e)}>
+                    <label htmlFor="reply-input" className="row">
+                        <input 
+                            type="file" 
+                            id="file-input" 
+                            style={{ display: 'none' }} 
+                        />
+                        <button type="button" onClick={() => document.getElementById('file-input')?.click()}>
+                            <i id="attach"></i>
+                        </button>
+                        
                 <input value={message} type="text" placeholder="Type a message..." onChange={(e) => setMessage(e.target.value)}/>
-                <button className="row a-center">Send <i className="center"></i></button>
-            </form>
+                        <button className="row a-center"><span>Send</span> <i id="send"></i></button>
+                    </label>
+                </form>
+            </div>
         </div>
     )
 }

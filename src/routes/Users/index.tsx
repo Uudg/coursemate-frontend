@@ -41,10 +41,6 @@ const User = () => {
                     <Edit setEdit={setEdit} data={user}/> :
                     <View setEdit={setEdit} user={user}/>
                 }
-
-                {
-                    user && <View setEdit={setEdit} user={user}/>
-                }
             </div>
         </>
     );

@@ -13,13 +13,15 @@ const Chats = () => {
     }
 
     return(
-        <>
+        <div className="chats column">
             <h1>Chats</h1>
-            <div className={opened ? "active chats" : "chats" }>
-                <ChatList setChat={set} />
-                <ChatView chat={chat} />
+            <div className="chat-window">
+                <div className={`block ${opened ? 'active' : ""}`}>
+                    <ChatList setChat={set} />
+                    <ChatView chat={chat} />
+                </div>
             </div>
-        </>
+        </div>
     )
 }
 
